@@ -93,7 +93,7 @@ public class MessageService {
      * @returns a list of Message objects posted by given account
      */
     public List<Message> messageByAccountid(int id){
-        List<Message> allUserMessages = messageRepository.findMessagesBypostedBy(id);
+        List<Message> allUserMessages = messageRepository.findBypostedBy(id);
         return allUserMessages;
     }
 

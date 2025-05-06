@@ -81,8 +81,8 @@ public class AccountService {
             return null;
         }
 
-        Account acc = accountRepository.findByusername(account.getUsername());
-        if(acc != null && acc.getPassword().equals(account.getPassword())){
+        Account acc = accountRepository.findByUsernameAndPassword(account.getUsername(), account.getPassword());
+        if(acc != null){
             return acc;
         }
 
