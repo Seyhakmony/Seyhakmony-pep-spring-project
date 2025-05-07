@@ -79,10 +79,13 @@ public class MessageService {
         if (m == null || m.trim().isEmpty() || m.length() > 255) {
             return -1;
         }
-        if(messageRepository.findById(id).isPresent()){
-            Message tempUpdated = messageRepository.findById(id).get();
+        Optional<Message> mC = messageRepository.findById(id);
+        if(mC.isPresent()){
+            Message tempUpdated = mC.get();
             tempUpdated.setMessageText(m);
+
             messageRepository.save(tempUpdated);
+            
             return 1;
         }
         return -1;
